@@ -11,7 +11,7 @@
     <p class="meta">{{ s.category }} — {{ s.date | date:'dd MMM yyyy' }}</p>
     <p>{{ s.description }}</p>
     <span class="badge {{ s.status }}">{{ s.status | uppercase }}</span>
-
+     <button (click)="goToForm()">➕ Ajouter une suggestion</button>
     <div *ngIf="s.status !== 'refusee'">
       <button (click)="like(s)">👍 Like {{ s.nbLikes }}</button>
       <button (click)="addToFavorites(s)">❤️ Ajouter aux favoris</button>
