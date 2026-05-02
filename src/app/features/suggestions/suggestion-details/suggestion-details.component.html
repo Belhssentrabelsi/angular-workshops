@@ -1,0 +1,13 @@
+<div class="container" *ngIf="suggestion">
+  <h2>{{ suggestion.title }}</h2>
+  <p class="meta">{{ suggestion.category }} — {{ suggestion.date | date:'dd MMM yyyy' }}</p>
+  <p>{{ suggestion.description }}</p>
+  <span class="badge {{ suggestion.status }}">{{ suggestion.status | uppercase }}</span>
+  <br><br>
+  <button (click)="backToList()">⬅️ Back to list</button>
+</div>
+
+<div class="container" *ngIf="!suggestion">
+  <p>Suggestion introuvable!</p>
+  <button (click)="backToList()">⬅️ Back to list</button>
+</div>

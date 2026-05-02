@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Liste des suggestions</h2>
+
+  <input 
+    type="text" 
+    placeholder="Rechercher une suggestion..."
+    [(ngModel)]="searchTerm">
+
+  <div class="card" *ngFor="let s of filteredSuggestions">
+    <h3>{{ s.title }}</h3>
+    <p class="meta">{{ s.category }} — {{ s.date | date:'dd MMM yyyy' }}</p>
+    <p>{{ s.description }}</p>
+    <span class="badge {{ s.status }}">{{ s.status | uppercase }}</span>
+
+    <div *ngIf="s.status !== 'refusee'">
+      <button (click)="like(s)">👍 Like {{ s.nbLikes }}</button>
+      <button (click)="addToFavorites(s)">❤️ Ajouter aux favoris</button>
+    </div>
+
+    <button (click)="goToDetails(s.id)">🔍 Détails</button>
+  </div>
+</div>
